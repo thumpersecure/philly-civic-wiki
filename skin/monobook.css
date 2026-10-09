@@ -1,0 +1,202 @@
+/* Philadelphia Civic Wiki - retro Monobook-style skin (adapted from Fraud-OSINT Wiki).
+   Deliberately tiny & image-free for low data use, like the original MediaWiki.
+   ~1 HTTP request, no web fonts, no JS required. */
+
+* { box-sizing: border-box; }
+
+body {
+  font: 13px/1.5 sans-serif;
+  color: #000;
+  background: #f9f9f9 url("data:image/gif;base64,R0lGODlhAQABAIAAAOjo6P///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==") repeat-x;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- top masthead ---- */
+#globalWrapper { width: 100%; }
+
+#siteTitle {
+  font-family: "Times New Roman", Georgia, serif;
+  padding: 0.4em 1em 0.2em 1em;
+  border-bottom: 1px solid #aaa;
+  background: #fff;
+}
+#siteTitle a { color: #000; text-decoration: none; }
+#siteTitle .logo { font-size: 1.9em; font-weight: bold; }
+#siteTitle .tagline { font-size: 0.85em; font-style: italic; color: #555; }
+
+/* ---- 2-column layout: sidebar + content ---- */
+#layout { display: table; width: 100%; border-collapse: collapse; }
+#column-one {
+  display: table-cell;
+  width: 11.6em;
+  vertical-align: top;
+  background: #f6f6f6;
+  border-right: 1px solid #aaa;
+  padding: 0.5em 0.4em;
+}
+#content {
+  display: table-cell;
+  vertical-align: top;
+  background: #fff;
+  padding: 1em 1.4em 2em 1.4em;
+  border-left: 1px solid #fabd23; /* the classic wiki gold-left content rule */
+  line-height: 1.6;
+}
+
+/* ---- sidebar ---- */
+.portlet { margin: 0 0 1.1em 0; font-size: 0.85em; }
+.portlet h5 {
+  color: #4d4d4d;
+  font-weight: normal;
+  font-size: 0.95em;
+  margin: 0 0 0.2em 0.2em;
+  padding: 0;
+  text-transform: lowercase;
+}
+.portlet ul { list-style: none; margin: 0; padding: 0 0 0 0.4em; }
+.portlet li { padding: 0.1em 0; line-height: 1.4; }
+#p-logo { text-align: center; font: bold 1.1em "Times New Roman", serif; padding: 0.3em 0 0.6em 0; }
+#searchInput { width: 9.5em; font-size: 1em; border: 1px solid #aaa; padding: 1px 2px; }
+#searchGo { font-size: 0.9em; margin-top: 0.3em; }
+
+/* ---- links: the true old-wiki blue ---- */
+a { color: #0645ad; text-decoration: none; }
+a:visited { color: #0b0080; }
+a:hover { text-decoration: underline; }
+a.new, a.new:visited { color: #ba0000; } /* red = page doesn't exist */
+a.external { color: #36b; }
+a.external::after { content: " \2197"; font-size: 0.8em; }
+
+/* ---- headings ---- */
+h1, h2, h3, h4 {
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: normal;
+  color: #000;
+  margin: 0.7em 0 0.3em 0;
+  padding-bottom: 0.17em;
+}
+h1 { font-size: 1.9em; border-bottom: 1px solid #aaa; }
+h2 { font-size: 1.5em; border-bottom: 1px solid #aaa; }
+h3 { font-size: 1.25em; font-weight: bold; }
+h4 { font-size: 1.05em; font-weight: bold; }
+
+#firstHeading { font-size: 1.9em; border-bottom: 1px solid #aaa; }
+.subtitle { font-size: 0.85em; color: #555; margin: -0.2em 0 1em 0; }
+
+/* ---- paragraphs, lists ---- */
+p { margin: 0.5em 0; }
+#content ul, #content ol { margin: 0.3em 0 0.8em 1.6em; padding: 0; }
+#content li { margin-bottom: 0.15em; }
+
+/* ---- table of contents box ---- */
+.toc {
+  display: inline-block;
+  border: 1px solid #aaa;
+  background: #f9f9f9;
+  padding: 0.5em 1.2em 0.5em 0.7em;
+  font-size: 0.95em;
+  margin: 0.4em 0 1em 0;
+}
+.toc .toctitle { text-align: center; font-weight: bold; }
+.toc ul { list-style: none; margin: 0.2em 0 0 0; padding: 0; }
+.toc ul ul { margin-left: 1.2em; }
+.toc li { margin: 0.1em 0; }
+.toc .tocnumber { color: #555; }
+
+/* ---- infobox (right-floated) ---- */
+.infobox {
+  float: right;
+  clear: right;
+  width: 22em;
+  margin: 0 0 1em 1.4em;
+  border: 1px solid #aaa;
+  background: #f9f9f9;
+  font-size: 0.88em;
+  border-collapse: collapse;
+}
+.infobox th.ibtitle {
+  background: #ccccff;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 0.3em;
+  border-bottom: 1px solid #aaa;
+}
+.infobox th.ibsection {
+  background: #ddddff;
+  text-align: center;
+  padding: 0.2em;
+}
+.infobox td, .infobox th { padding: 0.25em 0.4em; vertical-align: top; }
+.infobox td.iblabel { font-weight: bold; width: 8em; }
+
+/* ---- general content tables ---- */
+table.wikitable {
+  border: 1px solid #a2a9b1;
+  border-collapse: collapse;
+  margin: 0.5em 0;
+  background: #f8f9fa;
+  font-size: 0.95em;
+}
+table.wikitable > * > tr > th { background: #eaecf0; font-weight: bold; }
+table.wikitable > * > tr > th,
+table.wikitable > * > tr > td { border: 1px solid #a2a9b1; padding: 0.3em 0.5em; }
+
+/* ---- note / message boxes ---- */
+.notebox {
+  border: 1px solid #aaa;
+  background: #fbfbfb;
+  padding: 0.5em 0.9em;
+  margin: 0.8em 0;
+  font-size: 0.95em;
+}
+.notebox.stub { background: #f9f9d9; border-color: #cc9; }
+.hatnote { font-style: italic; color: #333; margin: 0.2em 0 0.8em 1.6em; font-size: 0.95em; }
+
+/* ---- blockquote ---- */
+blockquote {
+  border-left: 3px solid #ccc;
+  margin: 0.6em 0 0.6em 1em;
+  padding: 0.1em 0 0.1em 0.9em;
+  color: #222;
+}
+
+/* ---- code ---- */
+code, kbd, pre {
+  font-family: "Courier New", monospace;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 0 0.2em;
+}
+pre { padding: 0.6em; overflow-x: auto; }
+
+/* ---- references ---- */
+.references { font-size: 0.85em; line-height: 1.5; }
+.references li { margin-bottom: 0.2em; }
+sup.ref { font-size: 0.75em; }
+
+/* ---- category/footer nav ---- */
+.catlinks {
+  border: 1px solid #aaa;
+  background: #f9f9f9;
+  padding: 0.4em 0.7em;
+  margin: 1.5em 0 0 0;
+  font-size: 0.9em;
+}
+#footer {
+  clear: both;
+  border-top: 1px solid #aaa;
+  background: #fff;
+  padding: 0.6em 1.4em;
+  font-size: 0.8em;
+  color: #555;
+}
+#footer a { color: #0645ad; }
+
+/* ---- responsive: stack on narrow screens ---- */
+@media (max-width: 600px) {
+  #layout, #column-one, #content { display: block; width: auto; }
+  #column-one { border-right: none; border-bottom: 1px solid #aaa; }
+  .infobox { float: none; width: auto; margin: 1em 0; }
+}
